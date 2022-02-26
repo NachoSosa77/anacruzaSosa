@@ -1,0 +1,11 @@
+.Cart-4 {
+    margin-left: 10px;
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 4px;
+}
+
+.Cart-4:hover {
+    color: white; 
+    background-color: black;   
+}

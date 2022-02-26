@@ -8,6 +8,8 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import CartWidget from '../CartWidget/CartWidget'
+import "./NavBar.css"
 
 const NavBar = () => {
   return (
@@ -47,6 +49,9 @@ const NavBar = () => {
               />
               <Button variant="outline-dark">Buscar</Button>
             </Form>
+            <div className="Cart-4">
+            <CartWidget/>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
