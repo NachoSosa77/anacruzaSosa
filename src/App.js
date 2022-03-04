@@ -4,11 +4,12 @@ import NavBar from './components/NavBar/NavBar';
 
 
 function App() {
+ 
   return (
     <div>
       <header>
          <NavBar></NavBar>
-         <ItemListContainer></ItemListContainer>
+         <ItemListContainer texto="Productos Destacados"/>
       </header>
     </div>
   );
