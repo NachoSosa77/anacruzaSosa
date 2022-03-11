@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import "./styles.css";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, }) => {
   const [accountant, setAccountant] = useState(initial);
 
   const sumar = () => {
@@ -15,6 +15,10 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       setAccountant(accountant - 1);
     }
   };
+
+  const onAdd = () => {
+    alert("Producto agregado.")
+  }
   
  
 
