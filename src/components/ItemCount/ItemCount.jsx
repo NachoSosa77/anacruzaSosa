@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import "./styles.css";
 
-const ItemCount = ({ stock, initial, }) => {
+const ItemCount = ({ stock, initial, item }) => {
   const [accountant, setAccountant] = useState(initial);
 
   const sumar = () => {
@@ -17,17 +17,12 @@ const ItemCount = ({ stock, initial, }) => {
   };
 
   const onAdd = () => {
-    alert("Producto agregado.")
-  }
-  
- 
+    alert("Producto agregado.");
+  };
 
   return (
     <div className="card-content">
-      <Card style={{ width: "10rem" }} border="dark" className="text-center">
-        <Card.Header>
-          <Card.Title>Gibson Les Paul</Card.Title>
-        </Card.Header>
+      <Card style={{ width: "auto" }} border="dark" className="text-center">
         <Card.Body>
           <Card.Text>
             <Button
