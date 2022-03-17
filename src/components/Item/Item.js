@@ -1,11 +1,8 @@
 import React from "react";
 import "./style.css";
-
 import { Card, Button } from "react-bootstrap";
 
-function Item({id, pictureUrl, title, description, price}){
-
-
+function Item({ id, pictureUrl, title, description, price }) {
   return (
     <div>
       <Card className="card-list">
@@ -15,14 +12,15 @@ function Item({id, pictureUrl, title, description, price}){
           <Card.Title>{title}</Card.Title>
           <Card.Text>{description}</Card.Text>
           <div className="d-grid gap-2">
-          <Button variant="outline-dark" disabled>Ver Más</Button>
+            <Button variant="outline-dark" disabled>
+              Ver Más
+            </Button>
           </div>
         </Card.Body>
         <Card.Footer className="text-muted">U$D {price}</Card.Footer>
       </Card>
-      
     </div>
   );
-};
+}
 
 export default Item;

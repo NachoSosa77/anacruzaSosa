@@ -1,15 +1,13 @@
 import ItemListContainer from "components/ItemListContainer/ItemListContainer";
 import "./App.css";
-import NavBar from './components/NavBar/NavBar';
-
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
- 
   return (
     <div>
       <header>
-         <NavBar></NavBar>
-         <ItemListContainer texto="Productos Destacados"/>
+        <NavBar></NavBar>
+        <ItemListContainer texto="Productos Destacados" />
       </header>
     </div>
   );
