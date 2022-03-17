@@ -1,8 +1,10 @@
-
 import ItemList from "components/ItemList/ItemList";
 import React from "react";
+import {useState, useEffect} from "react";
 
 const ItemListContainer = (props) => {
+  const [productos, setProductos] = useState([])
+  
   let item = [
     {
       id: "1",
@@ -21,7 +23,7 @@ const ItemListContainer = (props) => {
       price: "1599",
       pictureUrl:
         "https://media.guitarcenter.com/is/image/MMGS7/L76588000001000-00-720x720.jpg",
-    }
+    },
   ];
 
   const imprimirProductos = () => {
@@ -36,13 +38,17 @@ const ItemListContainer = (props) => {
     });
   };
 
-  imprimirProductos();
- 
+  useEffect(() => {
+    imprimirProductos()
+      .then((res) => setProductos(res))      
+      .catch((err) => console.error(err));
+  }, []);
+
+
   return (
     <>
       {/* <h2>{props.texto}</h2> */}
-      <ItemList items={item} />
-      
+      <ItemList items={productos} />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-//import ItemCount from "components/ItemCount/ItemCount";
+
 import { Card, Button } from "react-bootstrap";
 
 function Item({id, pictureUrl, title, description, price}){
@@ -20,7 +20,7 @@ function Item({id, pictureUrl, title, description, price}){
         </Card.Body>
         <Card.Footer className="text-muted">U$D {price}</Card.Footer>
       </Card>
-      {/*<ItemCount stock={5} initial={1} />*/}
+      
     </div>
   );
 };
