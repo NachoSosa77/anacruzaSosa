@@ -1,21 +1,23 @@
-import ItemDetail from 'components/ItemDetail/ItemDetail'
-import { pedirDatos } from 'components/helpers/pedirDatos'
-import React from 'react'
-import {useState, useEffect} from "react"
+import ItemDetail from "components/ItemDetail/ItemDetail";
+import { pedirDatos } from "components/helpers/pedirDatos";
+import React from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-  const [producto, setProducto] = useState(null)
-
+  const [item, setItem] = useState(null);
+  const { itemId } = useParams();
 
   useEffect(() => {
-    pedirDatos()
-      .then((res) => setProducto(res))      
-      .catch((err) => console.error(err));
+    pedirDatos().then((res) => {
+      setItem(res.find((prod) => prod.id === itemId));
+    });
   }, []);
-
   return (
-    <div><ItemDetail producto={producto}/></div>
-  )
-}
+    <div>
+      <ItemDetail {...item}/>
+    </div>
+  );
+};
 
-export default ItemDetailContainer
+export default ItemDetailContainer;
