@@ -1,3 +1,15 @@
 .card-list{
-  width: 20rem;  
+  width: 300px; 
+  height: 550px; 
+  text-align: center;
+  margin-top: 10px;
+}
+
+.link-to{
+  text-decoration: none;
+  color: black;
+}
+
+.link-to:hover{
+   color: grey;
 }

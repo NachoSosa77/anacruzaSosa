@@ -6,6 +6,20 @@
 }
 
 .Cart-4:hover {
-    color: white; 
-    background-color: black;   
+    color: white;
+    background-color: black;
+}
+
+.brand-link {
+    text-decoration: none;
+    color: black;
+    margin-right: 5px;
+}
+
+.brand-link:hover {
+    color: grey;
+}
+
+.link-to{
+    text-decoration: none;
 }

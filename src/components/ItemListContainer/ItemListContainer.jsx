@@ -3,15 +3,24 @@ import { pedirDatos } from "../helpers/pedirDatos";
 import "./itemListContainer.css";
 import React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
+
+  const { categoryId } = useParams();
 
   useEffect(() => {
     pedirDatos()
-      .then((res) => setProductos(res))
+      .then((res) => {
+        if (!categoryId) {
+          setProductos(res);
+        } else {
+          setProductos(res.filter((prod) => prod.categoria === categoryId));
+        }
+      })
       .catch((err) => console.error(err));
-  }, []);
+  }, [categoryId]);
 
   return (
     <div className="list-container">

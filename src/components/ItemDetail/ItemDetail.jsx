@@ -11,11 +11,6 @@ const ItemDetail = ({id, pictureUrl, title, description, price}) => {
     <Card.Body>
       <Card.Title>{title}</Card.Title>
       <Card.Text>{description}</Card.Text>
-      <div className="d-grid gap-2">
-        <Button variant="outline-dark" disabled>
-          Ver Más
-        </Button>
-      </div>
     </Card.Body>
     <Card.Footer className="text-muted">U$D {price}</Card.Footer>
   </Card></div>

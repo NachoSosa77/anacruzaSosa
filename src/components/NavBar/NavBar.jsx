@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Navbar,
   Nav,
@@ -8,15 +9,19 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import CartWidget from '../CartWidget/CartWidget'
-import "./NavBar.css"
+import CartWidget from "../CartWidget/CartWidget";
+import "./NavBar.css";
 
 const NavBar = () => {
   return (
     <div>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#"><h2><b>Anacruza</b></h2></Navbar.Brand>
+          <Link to="/" className="brand-link">
+            <h2>
+              <b>Anacruza</b>
+            </h2>
+          </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -24,21 +29,14 @@ const NavBar = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <NavDropdown title="Categorías" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="#action3">
-                    Guitarras
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Bajos
-                  </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action5">
-                        Gifs Cards!
-                      </NavDropdown.Item>
+              <NavDropdown title="Productos" id="navbarScrollingDropdown">
+                <Link to="/productos/guitarras" className="link-to"><NavDropdown.Item href="#action3">Guitarras</NavDropdown.Item></Link>
+                <Link to="/productos/bajos" className="link-to"><NavDropdown.Item href="#action4">Bajos</NavDropdown.Item></Link>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">Gifs Cards!</NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="#action1">Usados</Nav.Link>
               <Nav.Link href="#action2">Baterias</Nav.Link>
-              
             </Nav>
             <Form className="d-flex">
               <FormControl
@@ -50,7 +48,7 @@ const NavBar = () => {
               <Button variant="outline-dark">Buscar</Button>
             </Form>
             <div className="Cart-4">
-            <CartWidget/>
+              <CartWidget />
             </div>
           </Navbar.Collapse>
         </Container>
