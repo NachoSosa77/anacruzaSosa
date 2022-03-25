@@ -30,13 +30,13 @@ const NavBar = () => {
               navbarScroll
             >
               <NavDropdown title="Productos" id="navbarScrollingDropdown">
-                <Link to="/productos/guitarras" className="link-to"><NavDropdown.Item href="#action3">Guitarras</NavDropdown.Item></Link>
-                <Link to="/productos/bajos" className="link-to"><NavDropdown.Item href="#action4">Bajos</NavDropdown.Item></Link>
+                <NavDropdown.Item><Link to="/productos/guitarras" className="link-to">Guitarras</Link></NavDropdown.Item>
+                <NavDropdown.Item><Link to="/productos/bajos" className="link-to">Bajos</Link></NavDropdown.Item> 
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">Gifs Cards!</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#action1">Usados</Nav.Link>
-              <Nav.Link href="#action2">Baterias</Nav.Link>
+              {/* <Link href="#action1">Usados</Link>
+              <Link href="#action2">Baterias</Link> */}
             </Nav>
             <Form className="d-flex">
               <FormControl

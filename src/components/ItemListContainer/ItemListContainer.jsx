@@ -16,7 +16,7 @@ const ItemListContainer = () => {
         if (!categoryId) {
           setProductos(res);
         } else {
-          setProductos(res.filter((prod) => prod.categoria === categoryId));
+          setProductos(res.filter((prod) => prod.category === categoryId));
         }
       })
       .catch((err) => console.error(err));

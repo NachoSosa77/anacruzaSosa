@@ -7,7 +7,8 @@ export const stock = [
       price: "2999",
       pictureUrl:
         "https://media.guitarcenter.com/is/image/MMGS7/L72812000003000-00-720x720.jpg",
-        categoria:"guitarras"
+        category:"guitarras",
+        stock: 15
     },
     {
       id: "2",
@@ -17,7 +18,8 @@ export const stock = [
       price: "1599",
       pictureUrl:
         "https://media.guitarcenter.com/is/image/MMGS7/L76588000001000-00-720x720.jpg",
-        categoria:"guitarras"
+        category:"guitarras",
+        stock: 10
     },
     {
       id: "3",
@@ -27,7 +29,8 @@ export const stock = [
       price: "2699",
       pictureUrl:
         "https://media.guitarcenter.com/is/image/MMGS7/L54578000003000-00-720x720.jpg",
-        categoria:"guitarras"
+        category:"guitarras",
+        stock: 20
     },
 {
       id: "4",
@@ -37,7 +40,8 @@ export const stock = [
       price: "2699",
       pictureUrl:
         "https://media.guitarcenter.com/is/image/MMGS7/L54575000002000-00-720x720.jpg",
-        categoria:"guitarras"
+        category:"guitarras",
+        stock: 5
     },
     {
       id: "5",
@@ -47,7 +51,8 @@ export const stock = [
 	price:"3999",
       pictureUrl:
         "https://media.guitarcenter.com/is/image/MMGS7/L76588000001000-00-720x720.jpg",
-        categoria:"guitarras"
+        category:"guitarras",
+        stock: 8
     },
     {
       id: "6",
@@ -57,7 +62,8 @@ export const stock = [
       price: "1999",
       pictureUrl:
         "https://media.guitarcenter.com/is/image/MMGS7/L54585000001000-00-720x720.jpg",
-        categoria:"guitarras"
+        category:"guitarras",
+        stock: 10
     },
 {
       id: "7",
@@ -67,7 +73,8 @@ export const stock = [
 	price:"879",
       pictureUrl:
         "https://media.guitarcenter.com/is/image/MMGS7/L75293000001000-00-720x720.jpg",
-        categoria: "bajos"
+        category: "bajos",
+        stock: 3
     },
     {
       id: "8",
@@ -77,7 +84,8 @@ export const stock = [
       price: "849",
       pictureUrl:
         "https://media.guitarcenter.com/is/image/MMGS7/L21559000005000-00-720x720.jpg",
-        categoria: "bajos"
+        category: "bajos",
+        stock: 7
     },
 	
   ]

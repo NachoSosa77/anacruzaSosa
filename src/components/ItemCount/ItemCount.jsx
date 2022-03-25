@@ -1,23 +1,18 @@
-import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import "./styles.css";
 
-const ItemCount = ({ stock, initial, item }) => {
-  const [accountant, setAccountant] = useState(initial);
+const ItemCount = ({ max = 10, accountant, setAccountant, handleToCart  }) => {
+  
 
-  const sumar = () => {
-    if (accountant < stock) {
+  const handleSumar = () => {
+    if (accountant < max) {
       setAccountant(accountant + 1);
     }
   };
-  const restar = () => {
-    if (accountant > 0) {
+  const handleRestar = () => {
+    if (accountant > 1) {
       setAccountant(accountant - 1);
     }
-  };
-
-  const onAdd = () => {
-    alert("Producto agregado.");
   };
 
   return (
@@ -27,24 +22,24 @@ const ItemCount = ({ stock, initial, item }) => {
           <Card.Text>
             <Button
               variant="secondary"
-              onClick={restar}
-              disabled={accountant === 0}
+              onClick={handleRestar}
+              //disabled={accountant === 0}
             >
               -
             </Button>
             <span className="spn-account">{accountant}</span>
             <Button
               variant="secondary"
-              onClick={sumar}
-              disabled={accountant >= stock}
+              onClick={handleSumar}
+              //disabled={accountant >= stock}
             >
               +
             </Button>
           </Card.Text>
           <Button
             variant="secondary"
-            onClick={onAdd}
-            disabled={accountant > stock || accountant === 0}
+            onClick={handleToCart}
+            //disabled={accountant > stock || accountant === 0}
           >
             Agregar al carrito!
           </Button>
