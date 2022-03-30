@@ -3,6 +3,8 @@
     border: 1px solid black;
     padding: 3px;
     border-radius: 4px;
+    text-decoration: none;
+    color: black;
 }
 
 .Cart-4:hover {

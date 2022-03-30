@@ -1,4 +1,4 @@
-import ItemDetail from "components/ItemDetail/ItemDetail";
+import {ItemDetail} from "components/ItemDetail/ItemDetail";
 import { pedirDatos } from "components/helpers/pedirDatos";
 import React from "react";
 import { useState, useEffect } from "react";

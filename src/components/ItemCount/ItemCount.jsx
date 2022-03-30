@@ -1,9 +1,7 @@
 import { Button, Card } from "react-bootstrap";
 import "./styles.css";
 
-const ItemCount = ({ max = 10, accountant, setAccountant, handleToCart  }) => {
-  
-
+const ItemCount = ({ max = 10, accountant, setAccountant, handleToCart }) => {
   const handleSumar = () => {
     if (accountant < max) {
       setAccountant(accountant + 1);
@@ -36,13 +34,6 @@ const ItemCount = ({ max = 10, accountant, setAccountant, handleToCart  }) => {
               +
             </Button>
           </Card.Text>
-          <Button
-            variant="secondary"
-            onClick={handleToCart}
-            //disabled={accountant > stock || accountant === 0}
-          >
-            Agregar al carrito!
-          </Button>
         </Card.Body>
       </Card>
     </div>
