@@ -19,7 +19,7 @@ const ItemCount = ({ max = 10, accountant, setAccountant, handleToCart }) => {
         <Card.Body>
           <Card.Text>
             <Button
-              variant="secondary"
+              variant="outline-dark"
               onClick={handleRestar}
               //disabled={accountant === 0}
             >
@@ -27,7 +27,7 @@ const ItemCount = ({ max = 10, accountant, setAccountant, handleToCart }) => {
             </Button>
             <span className="spn-account">{accountant}</span>
             <Button
-              variant="secondary"
+              variant="outline-dark"
               onClick={handleSumar}
               //disabled={accountant >= stock}
             >

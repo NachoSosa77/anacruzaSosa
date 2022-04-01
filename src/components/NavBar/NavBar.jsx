@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   Navbar,
@@ -11,11 +11,13 @@ import {
 } from "react-bootstrap";
 import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css";
+import { CartContext } from "context/CartContext";
 
 const NavBar = () => {
+  const carritoContext = useContext(CartContext);
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" fixed="top">
         <Container fluid>
           <Link to="/" className="brand-link">
             <h2>
@@ -30,8 +32,16 @@ const NavBar = () => {
               navbarScroll
             >
               <NavDropdown title="Productos" id="navbarScrollingDropdown">
-                <NavDropdown.Item><Link to="/productos/guitarras" className="link-to">Guitarras</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/productos/bajos" className="link-to">Bajos</Link></NavDropdown.Item> 
+                <NavDropdown.Item>
+                  <Link to="/productos/guitarras" className="link-to">
+                    Guitarras
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/productos/bajos" className="link-to">
+                    Bajos
+                  </Link>
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">Gifs Cards!</NavDropdown.Item>
               </NavDropdown>
@@ -47,9 +57,13 @@ const NavBar = () => {
               />
               <Button variant="outline-dark">Buscar</Button>
             </Form>
-            <div className="Cart-4">
-              <Link to="/cart" className="link-to"><CartWidget /></Link>
-            </div>
+            {(carritoContext.totalItem())>0 &&
+              <div className="Cart-4">
+                <Link to="/cart" className="link-to">
+                  <CartWidget />
+                </Link>
+              </div>
+            }
           </Navbar.Collapse>
         </Container>
       </Navbar>

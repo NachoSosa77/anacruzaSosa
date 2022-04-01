@@ -43,7 +43,7 @@ export const ItemDetail = ({
 
             {isInCart(id) ? (
               <Link to="/cart">
-                <Button variant="secondary">Ir al carrito</Button>
+                <Button variant="outline-dark">Ir al carrito</Button>
               </Link>
             ) : (
               <>
@@ -53,7 +53,8 @@ export const ItemDetail = ({
                   setAccountant={setAccountant}
                 />
                 <Button
-                  className="btn btn-success my-2"
+                  className="btn-idetail"
+                  variant="outline-dark"
                   onClick={handleToCart}
                   disabled={accountant === 0}
                 >
