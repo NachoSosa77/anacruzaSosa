@@ -2,7 +2,7 @@ import ItemList from "components/ItemList/ItemList";
 //import { pedirDatos } from "../helpers/pedirDatos";
 import "./itemListContainer.css";
 import React from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../utils/firebase";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -10,22 +10,26 @@ import { useParams } from "react-router-dom";
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
 
-  /* const { categoryId } = useParams(); */
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    const getData = async () => {
-      const query = collection(db, "items");
-      const response = await getDocs(query);
-        const dataItems = response.docs.map((doc) => {
-        return { id: doc.id, ...doc.data() };
-      });
-      setProductos(dataItems);
-    };
-    getData();
-  }, []);
+    const productosRef = collection(db, "items");
+    const q = categoryId
+      ? query(productosRef, where("category", "==", categoryId))
+      : productosRef;
+    getDocs(q).then((resp) => {
+      setProductos(
+        resp.docs.map((doc) => {
+          return {
+            id: doc.id,
+            ...doc.data(),
+          };
+        })
+      );
+    });
+  }, [categoryId]);
   return (
     <div className="list-container">
-      {/* <h2>{props.texto}</h2> */}
       <ItemList productos={productos} />
     </div>
   );
