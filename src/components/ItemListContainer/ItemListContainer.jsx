@@ -9,28 +9,33 @@ import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   const { categoryId } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     const productosRef = collection(db, "items");
     const q = categoryId
       ? query(productosRef, where("category", "==", categoryId))
       : productosRef;
-    getDocs(q).then((resp) => {
-      setProductos(
-        resp.docs.map((doc) => {
-          return {
-            id: doc.id,
-            ...doc.data(),
-          };
-        })
-      );
-    });
+    getDocs(q)
+      .then((resp) => {
+        setProductos(
+          resp.docs.map((doc) => {
+            return {
+              id: doc.id,
+              ...doc.data(),
+            };
+          })
+        );
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [categoryId]);
   return (
     <div className="list-container">
-      <ItemList productos={productos} />
+      <ItemList productos={productos} loading={loading} />
     </div>
   );
 };

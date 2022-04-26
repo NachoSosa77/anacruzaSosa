@@ -1,0 +1,42 @@
+import { collection, addDoc, Timestamp, writeBatch, query, where, documentId, getDocs } from 'firebase/firestore';
+import { db } from "./firebase"
+
+export const generateOrder = async (values, cart, totalCart, setOrderId, vaciarCart) => {
+    const order = {
+        comprador: values,
+        items: cart,
+        total: totalCart(),
+        fyh: Timestamp.fromDate(new Date())
+    } 
+
+    const batch = writeBatch(db)
+    const ordersRef = collection(db, "orders")
+    const productosRef = collection(db, "productos")
+    
+    const q = query(productosRef, where(documentId(), 'in', cart.map((el) => el.id)))
+    const productos = await getDocs(q)
+    const outOfStock = []
+    
+    productos.docs.forEach((doc) => {
+        const item = cart.find((el) => el.id === doc.id)
+
+        if (doc.data().stock >= item.cantidad) {
+            batch.update(doc.ref, {
+                stock: doc.data().stock - item.cantidad
+            })
+        } else {
+            outOfStock.push(item)
+        }
+    })
+
+    if (outOfStock.length === 0) {
+        addDoc(ordersRef, order)
+            .then((doc) => {
+                batch.commit()
+                setOrderId(doc.id)
+                vaciarCart()
+            })
+    } else {
+        alert("Hay items sin stock")
+    }
+}

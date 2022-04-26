@@ -1,8 +1,14 @@
 import Item from "components/Item/Item";
 import React from "react";
-import {CardGroup } from "react-bootstrap";
+import {CardGroup} from "react-bootstrap";
+import Loading from "components/Loading/Loading";
 
-const ItemList = ({ productos }) => {
+const ItemList = ({ productos, loading }) => {
+
+  if(loading||!productos){
+    return <Loading/>;
+  }
+
   return (
     <div>
       <CardGroup>

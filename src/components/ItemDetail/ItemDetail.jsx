@@ -1,71 +1,49 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Container} from "react-bootstrap";
 import "./ItemDetail.css";
 import ItemCount from "components/ItemCount/ItemCount";
-import {CartContext} from "../../context/CartContext"
+import { CartContext } from "../../context/CartContext";
 
-export const ItemDetail = ({
-  id,
-  pictureUrl,
-  title,
-  description,
-  price,
-  stock,
-}) => {
+const ItemDetail = ({ id, pictureUrl, title, description, price, stock }) => {
   const [accountant, setAccountant] = useState(1);
   const { addItem, isInCart } = useContext(CartContext);
+  const [finishBuy, setFinishBuy] = useState(false);
 
   const handleToCart = () => {
-    if (accountant === 0) return;
     if (!isInCart(id)) {
-      const itemToCart = {
+      const itemCart = {
         id,
-        title,
         price,
-        pictureUrl,
         accountant,
+        title,
       };
-
-      addItem(itemToCart);
+      addItem(itemCart);
     }
-  }
-
-    return (
-      <div className="card-detail">
-        <Card style={{ width: "18rem" }}>
-          <Card.Header>{id}</Card.Header>
-          <Card.Img variant="top" src={pictureUrl} />
-          <Card.Body>
-            <Card.Title>{title}</Card.Title>
-            <Card.Text>{description}</Card.Text>
-
-            {isInCart(id) ? (
-              <Link to="/cart">
-                <Button variant="outline-dark">Ir al carrito</Button>
-              </Link>
-            ) : (
-              <>
-                <ItemCount
-                  max={stock}
-                  accountant={accountant}
-                  setAccountant={setAccountant}
-                />
-                <Button
-                  className="btn-idetail"
-                  variant="outline-dark"
-                  onClick={handleToCart}
-                  disabled={accountant === 0}
-                >
-                  Agregar al carrito
-                </Button>
-              </>
-            )}
-          </Card.Body>
-          <Card.Footer className="text-muted">U$D {price}</Card.Footer>
-        </Card>
-      </div>
-    );
+    setFinishBuy(true);
   };
 
+  return (
+    <Container className="card-detail">
+      <Card style={{ width: "18rem" }}>
+        <Card.Header>{title}</Card.Header>
+        <Card.Img variant="top" src={pictureUrl} />
+
+        <Card.Body >
+          <Card.Text>{description}</Card.Text>
+          <ItemCount
+            finishBuy={finishBuy}
+            max={stock}
+            accountant={accountant}
+            setAccountant={setAccountant}
+            handleToCart={handleToCart}
+          />
+        </Card.Body>
+
+        <Card.Footer className="text-muted">U$D {price}</Card.Footer>
+      </Card>
+    </Container>
+  );
+};
+
+export default ItemDetail;

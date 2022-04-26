@@ -21,7 +21,7 @@ const NavBar = () => {
         <Container fluid>
           <Link to="/" className="brand-link">
             <h2>
-              <b>Anacruza</b>
+              <b>Anacrusa</b>
             </h2>
           </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
